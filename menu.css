@@ -1,0 +1,29 @@
+.taskbar{position:absolute;left:50%;bottom:16px;cursor:grab;touch-action:none}
+.taskbar:active{cursor:grabbing}
+.desktop-icon{cursor:grab;touch-action:none;user-select:none}
+.desktop-icon:active{cursor:grabbing}
+.start-menu{position:absolute;left:8px;bottom:calc(100% + 12px);width:min(310px,calc(100vw - 32px));padding:17px;border:1px solid #ffffff20;border-radius:17px;background:rgba(25,27,37,.92);backdrop-filter:blur(24px) saturate(145%);box-shadow:0 22px 70px #06070e9c;animation:menu-in .16s ease-out;z-index:110}
+.start-menu[hidden]{display:none}
+@keyframes menu-in{from{opacity:0;transform:translateY(7px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+.start-menu-heading{margin:0 2px 12px;font-size:9px;letter-spacing:.15em;font-weight:700;color:#e7e3ef}
+.start-menu-heading span{float:right;color:#9293a2;font-weight:500}
+.start-menu-apps{display:grid;gap:3px}
+.start-menu-apps button{display:flex;align-items:center;gap:11px;padding:8px;border:0;border-radius:10px;background:transparent;text-align:left;color:#f0edf5;font:500 12px 'DM Sans';cursor:pointer}
+.start-menu-apps button:hover,.start-menu-apps button:focus-visible{outline:none;background:#ffffff11}
+.start-app-icon{font-style:normal;display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:#ffffff10}
+.about-mini{color:#ddc6ff}.projects-mini{color:#f7cb92}.files-mini{color:#a9d8fa}.videos-mini{color:#ffaec2}.contact-mini{color:#a9e3cc}
+.start-menu-apps button span{flex:1}.start-menu-apps button b{font-weight:400;color:#9898a7}
+.start-menu-foot{margin-top:11px;padding-top:12px;border-top:1px solid #ffffff14;display:flex;justify-content:space-between;gap:8px;color:#a5a5b2;font-size:9px}
+.start-menu-foot span:first-child{display:flex;align-items:center;gap:6px}
+.start-menu-foot i{width:6px;height:6px;border-radius:50%;background:#87d9b6;box-shadow:0 0 9px #87d9b688}
+.contact-links{flex-wrap:wrap}
+.contact-links a{transition:background .18s ease,border-color .18s ease,transform .18s ease}
+.contact-links a:hover,.contact-links button:hover{background:#ffffff14;border-color:#ffffff2c;transform:translateY(-2px)}
+.contact-links .whatsapp{color:#9de5b6}
+.contact-links .github{color:#f0edf7}
+.contact-links .linkedin{color:#9dcaff}
+.contact-links .email{color:#ddc6ff}
+.language-switch{display:flex;align-items:center;gap:3px;padding:3px;border:1px solid #ffffff18;border-radius:9px;background:#ffffff08;font-size:9px;letter-spacing:.04em}
+.language-switch button{padding:4px 6px;border:0;border-radius:6px;background:transparent;color:#999baa;font:600 9px 'DM Sans';cursor:pointer;transition:background .18s ease,color .18s ease}
+.language-switch button[aria-pressed="true"]{background:#ffffff16;color:#f1eaff}
+.language-switch button:hover{color:#fff}

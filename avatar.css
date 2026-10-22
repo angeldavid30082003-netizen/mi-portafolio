@@ -1,0 +1,15 @@
+.avatar-companion{position:fixed;z-index:25;right:clamp(18px,4vw,60px);bottom:0;width:clamp(150px,17vw,205px);height:min(48svh,390px);margin:0;display:flex;align-items:flex-end;justify-content:center;opacity:0;transform:translate(115%,105%) rotate(12deg) scale(.75);transform-origin:bottom right;pointer-events:none}
+.avatar-companion.is-ready{animation:avatar-entry 1.55s cubic-bezier(.2,.85,.25,1) both}
+.avatar-pose{display:flex;width:100%;height:100%;align-items:flex-end;justify-content:center;transform-origin:50% 95%}
+.avatar-pose.is-mirrored{scale:-1 1}
+.avatar-companion img{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 12px 20px #05060d55);transition:opacity .16s ease}
+.avatar-companion.is-changing img{opacity:0}
+.avatar-message{position:absolute;z-index:1;top:7%;right:78%;width:min(225px,62vw);padding:12px 14px;border:1px solid #ffffff25;border-radius:15px;background:rgba(25,27,37,.94);box-shadow:0 12px 35px #05060d66;color:#f3efff;font:500 12px/1.5 'DM Sans',sans-serif;opacity:0;transform:translateY(8px) scale(.92);transition:opacity .2s ease,transform .2s ease}
+.avatar-message::after{content:'';position:absolute;right:-6px;bottom:14px;width:11px;height:11px;background:rgba(25,27,37,.94);border-right:1px solid #ffffff25;border-top:1px solid #ffffff25;transform:rotate(45deg)}
+.avatar-companion.is-speaking .avatar-message{opacity:1;transform:translateY(0) scale(1)}
+.avatar-companion.is-reacting .avatar-pose{animation:avatar-react .78s cubic-bezier(.25,.8,.25,1)}
+@keyframes avatar-entry{0%{opacity:0;transform:translate(115%,105%) rotate(12deg) scale(.75)}42%{opacity:1;transform:translate(-12%,-12%) rotate(-7deg) scale(1.07)}60%{transform:translate(6%,5%) rotate(4deg) scale(.96)}78%{transform:translate(-3%,-2%) rotate(-2deg) scale(1.02)}90%{transform:translate(1%,1%) rotate(1deg) scale(.99)}100%{opacity:1;transform:translate(0,0) rotate(0) scale(1)}}
+@keyframes avatar-react{0%,100%{transform:rotate(0) translateY(0)}25%{transform:rotate(-7deg) translateY(-8px)}55%{transform:rotate(5deg) translateY(2px)}78%{transform:rotate(-2deg) translateY(-2px)}}
+.desktop-icons,.welcome{z-index:3}
+@media(max-width:680px){.avatar-companion{right:9px;width:clamp(115px,31vw,155px);height:min(34svh,250px)}.avatar-message{top:3%;right:72%;width:min(205px,65vw);padding:10px 12px;font-size:11px}}
+@media(prefers-reduced-motion:reduce){.avatar-companion.is-ready{animation:avatar-entry 1.2s ease-out both}.avatar-companion.is-reacting .avatar-pose{animation-duration:.5s}}

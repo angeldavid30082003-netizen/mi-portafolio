@@ -1,0 +1,962 @@
+@font-face {
+    font-family: 'Transformers Movie';
+    src: url('assets/fonts/transformers-movie.ttf') format('truetype');
+    font-display: swap
+}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+    font-family: 'DM Sans', sans-serif;
+    color: #f6f5f8;
+    background: #10131b;
+    font-synthesis: none;
+    --muted: #9b9eae;
+    --line: rgba(255, 255, 255, .1);
+    --glass: rgba(23, 26, 36, .76);
+    --accent: #c4a5ff;
+    --wallpaper-image: none;
+    --wallpaper-overlay: linear-gradient(135deg, rgba(17, 21, 30, .93), rgba(23, 24, 39, .82) 58%, rgba(17, 19, 28, .91))
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    min-width: 320px
+}
+
+.desktop {
+    position: relative;
+    isolation: isolate;
+    min-height: 100svh;
+    overflow: hidden;
+    background: var(--wallpaper-overlay), var(--wallpaper-image), radial-gradient(ellipse at 72% 72%, #1cd84e 0, transparent 0%), linear-gradient(135deg, #1f3c80, #c1c2d1 58%, #e20909);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed
+}
+
+.wallpaper-glow {
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    filter: blur(2px);
+    pointer-events: none
+}
+
+.glow-one {
+    width: 370px;
+    height: 370px;
+    right: 8%;
+    top: 19%;
+    background: radial-gradient(circle, rgba(126, 99, 194, .18), transparent 70%)
+}
+
+.glow-two {
+    width: 280px;
+    height: 280px;
+    left: 28%;
+    bottom: 8%;
+    background: radial-gradient(circle, rgba(85, 133, 147, .12), transparent 70%)
+}
+
+.topbar {
+    height: 58px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, .055);
+    color: #c9c9d2;
+    font-size: 12px;
+    letter-spacing: .04em
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: 600
+}
+
+.brand-mark {
+    font-size: 19px;
+    color: var(--accent)
+}
+
+.top-center {
+    font-size: 9px;
+    letter-spacing: .16em;
+    color: #858795
+}
+
+.top-center span {
+    color: #d1b6ff;
+    padding: 0 8px
+}
+
+.top-clock {
+    font-variant-numeric: tabular-nums;
+    color: #a9aab6
+}
+
+.welcome {
+    position: absolute;
+    left: 12%;
+    top: 28%;
+    width: min(560px, 76vw);
+    max-width: 560px
+}
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: .15em;
+    color: #bfc0cd;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 9px
+}
+
+.live-dot,
+.task-status i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #87d9b6;
+    box-shadow: 0 0 12px #87d9b688
+}
+
+.welcome h1 {
+    font: 700 clamp(30px, 5.2vw, 70px)/1.08 Manrope, sans-serif;
+    letter-spacing: -.06em;
+    margin: 19px 0 16px
+}
+
+.welcome h1 .hero-name {
+    position: relative;
+    isolation: isolate;
+    display: inline;
+    font-family: 'Transformers Movie', Manrope, sans-serif;
+    font-size: 1em;
+    line-height: 1.16;
+    letter-spacing: 0;
+    color: #c8adff
+}
+
+
+.hero-name-letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-.34em) scaleX(.18);
+    transform-origin: left center;
+    filter: blur(5px);
+    animation: name-letter-form .52s cubic-bezier(.18, .82, .22, 1) calc(var(--letter-index) * 38ms + 1150ms) forwards
+}
+
+.hero-name-word {
+    display: inline-block;
+    white-space: nowrap
+}
+
+.hero-intro {
+    position: relative;
+    display: inline-block;
+    isolation: isolate
+}
+
+.hero-intro::after {
+    position: absolute;
+    z-index: 2;
+    top: -12%;
+    bottom: -12%;
+    left: -35%;
+    width: 28%;
+    content: '';
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, #fff9, #d9c4ffcc, #fff8, transparent);
+    filter: blur(7px);
+    transform: skewX(-18deg);
+    animation: name-ribbon-pass .88s cubic-bezier(.18, .72, .28, 1) 120ms both
+}
+@keyframes name-letter-form {
+    55% { opacity: 1; transform: translateX(.04em) scaleX(1.08); filter: blur(0) }
+    100% { opacity: 1; transform: translateX(0) scaleX(1); filter: blur(0) }
+}
+
+@keyframes name-ribbon-pass {
+    from { left: -30%; opacity: 0 }
+    12% { opacity: 1 }
+    88% { opacity: .9 }
+    to { left: 110%; opacity: 0 }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-name-letter { opacity: 1; transform: none; filter: none; animation: none }
+    .hero-intro::after { animation: none }
+}
+.welcome-copy {
+    color: #aaabb8;
+    font-size: 14px;
+    line-height: 1.8
+}
+
+.open-about {
+    margin-top: 20px;
+    background: #f3efff;
+    color: #252031;
+    border: 0;
+    border-radius: 10px;
+    padding: 12px 17px;
+    font: 600 12px 'DM Sans';
+    cursor: pointer;
+    box-shadow: 0 8px 28px #09091240
+}
+
+.open-about span {
+    margin-left: 18px;
+    font-size: 15px
+}
+
+.open-about:hover {
+    transform: translateY(-2px);
+    background: white
+}
+
+.desktop-icons {
+    position: absolute;
+    right: 8%;
+    top: 18%;
+    display: grid;
+    grid-template-columns: repeat(2, 86px);
+    gap: 25px 16px
+}
+
+.desktop-icon {
+    width: 86px;
+    padding: 8px 3px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    color: #e9e8ee;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+    font: 500 11px 'DM Sans';
+    cursor: pointer
+}
+
+.desktop-icon:hover,
+.desktop-icon:focus-visible {
+    background: #ffffff12;
+    border-color: #ffffff15;
+    outline: none
+}
+
+.app-icon {
+    height: 45px;
+    width: 45px;
+    border: 1px solid #ffffff17;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 8px 18px #05060d45
+}
+
+.app-icon svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round
+}
+
+.icon-about {
+    color: #ddc6ff;
+    background: linear-gradient(145deg, #413255, #292536)
+}
+
+.icon-projects {
+    color: #f7cb92;
+    background: linear-gradient(145deg, #54402f, #342b29)
+}
+
+.icon-files {
+    color: #a9d8fa;
+    background: linear-gradient(145deg, #2d4859, #252f3a)
+}
+
+.icon-videos {
+    color: #ffaec2;
+    background: linear-gradient(145deg, #543344, #332735)
+}
+
+.icon-contact {
+    color: #a9e3cc;
+    background: linear-gradient(145deg, #315346, #26363a)
+}
+
+.taskbar {
+    height: 62px;
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
+    width: min(620px, calc(100% - 28px));
+    padding: 0 15px;
+    border: 1px solid #ffffff17;
+    border-radius: 18px;
+    background: rgba(24, 26, 36, .64);
+    backdrop-filter: blur(22px) saturate(145%);
+    box-shadow: 0 16px 48px #06070e88;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100
+}
+
+.taskbar-start,
+.taskbar-right,
+.task-apps {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.launcher {
+    border: 0;
+    background: #c5a8ff;
+    color: #221c30;
+    border-radius: 10px;
+    width: 34px;
+    height: 34px;
+    font-size: 19px;
+    cursor: pointer
+}
+
+.task-divider {
+    height: 25px;
+    width: 1px;
+    background: #ffffff20
+}
+
+.task-apps {
+    gap: 5px
+}
+
+.task-app {
+    position: relative;
+    width: 40px;
+    height: 38px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    color: #eae8f0;
+    font-size: 16px;
+    cursor: pointer
+}
+
+.task-app:hover,
+.task-app.active {
+    background: #ffffff13
+}
+
+.task-app.active:after {
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    left: 16px;
+    width: 8px;
+    height: 3px;
+    border-radius: 3px;
+    background: #c4a5ff
+}
+
+.taskbar-right {
+    font-size: 10px;
+    color: #b8b9c4;
+    gap: 9px
+}
+
+.task-status {
+    display: flex;
+    align-items: center;
+    gap: 7px
+}
+
+.task-status i {
+    width: 6px;
+    height: 6px
+}
+
+.taskbar-right #task-clock {
+    min-width: 53px;
+    text-align: right;
+    font-variant-numeric: tabular-nums
+}
+
+.window-layer {
+    position: absolute;
+    inset: 58px 0 85px;
+    pointer-events: none
+}
+
+.window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(630px, calc(100vw - 30px));
+    max-height: min(590px, calc(100svh - 145px));
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ffffff20;
+    border-radius: 17px;
+    background: rgba(25, 27, 37, .94);
+    backdrop-filter: blur(25px);
+    box-shadow: 0 28px 90px #070810a8;
+    overflow: hidden;
+    pointer-events: auto;
+    animation: appear .2s ease-out
+}
+
+.window.minimized {
+    display: none
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        scale: .98
+    }
+
+    to {
+        opacity: 1;
+        scale: 1
+    }
+}
+
+.window-titlebar {
+    height: 48px;
+    flex: none;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ffffff12;
+    cursor: grab;
+    user-select: none
+}
+
+.window-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 12px;
+    font-weight: 600;
+    flex: 1
+}
+
+.window-title .mini-icon {
+    width: 25px;
+    height: 25px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    background: #ffffff10
+}
+
+.window-controls {
+    display: flex;
+    gap: 7px
+}
+
+.window-controls button {
+    width: 25px;
+    height: 25px;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: #afb0bd;
+    cursor: pointer
+}
+
+.window-controls button:hover {
+    background: #ffffff17;
+    color: white
+}
+
+.window-content {
+    overflow: auto;
+    padding: 25px 28px 28px;
+    line-height: 1.65;
+    color: #c5c5d0;
+    font-size: 13px
+}
+
+.window-content h2 {
+    font: 700 26px Manrope, sans-serif;
+    letter-spacing: -.04em;
+    color: #f7f5fa;
+    margin: 0 0 8px
+}
+
+.window-content h3 {
+    color: #f0edf7;
+    font-size: 14px;
+    margin: 0 0 5px
+}
+
+.window-content .subhead {
+    color: #a3a3b2;
+    margin: 0 0 22px
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.3fr .7fr;
+    gap: 20px
+}
+
+.profile-card,
+.info-card,
+.project-card,
+.folder-card,
+.video-card {
+    background: #ffffff08;
+    border: 1px solid #ffffff12;
+    border-radius: 13px;
+    padding: 16px
+}
+
+.avatar {
+    width: 76px;
+    height: 76px;
+    border-radius: 24px;
+    background: linear-gradient(145deg, #9f7bd6, #414762);
+    display: grid;
+    place-items: center;
+    font: 700 26px Manrope;
+    color: white;
+    margin-bottom: 16px
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 13px
+}
+
+.tag {
+    font-size: 10px;
+    padding: 5px 9px;
+    border-radius: 99px;
+    background: #c4a5ff16;
+    color: #d4c1f3
+}
+
+.window-content .label {
+    font-size: 9px;
+    letter-spacing: .15em;
+    color: #9698a8;
+    margin: 0 0 10px
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px
+}
+
+.project-card {
+    position: relative;
+    min-height: 145px
+}
+
+.project-visual {
+    height: 48px;
+    border-radius: 9px;
+    margin-bottom: 12px;
+    background: linear-gradient(120deg, #503e67, #253b4b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #dfcaff;
+    font-size: 20px
+}
+
+.project-card:nth-child(2) .project-visual {
+    background: linear-gradient(120deg, #634744, #40364e)
+}
+
+.project-card p,
+.video-card p {
+    font-size: 11px;
+    color: #a3a4b2;
+    margin: 4px 0 10px
+}
+
+.small-link,
+.action-btn {
+    border: 0;
+    background: transparent;
+    color: #ceb5ff;
+    font: 600 11px 'DM Sans';
+    cursor: pointer;
+    padding: 0
+}
+
+.folder-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px
+}
+
+.action-btn {
+    background: #c4a5ff;
+    color: #241c31;
+    padding: 9px 12px;
+    border-radius: 9px
+}
+
+.folder-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px
+}
+
+.folder-card {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    cursor: pointer
+}
+
+.folder-card:hover {
+    background: #ffffff10
+}
+
+.folder-symbol {
+    font-size: 23px
+}
+
+.folder-card strong {
+    display: block;
+    color: #e6e4ec;
+    font-size: 12px
+}
+
+.folder-card small {
+    font-size: 10px;
+    color: #9a9ba9
+}
+
+.file-list {
+    margin-top: 18px;
+    border-top: 1px solid #ffffff12;
+    padding-top: 14px
+}
+
+.file-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 2px;
+    font-size: 11px;
+    color: #c8c6d0;
+    border-bottom: 1px solid #ffffff0b
+}
+
+.file-row small {
+    color: #8d8e9e
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 760px;
+    gap: 12px
+}
+
+.video-thumbnail-link {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    background: #08090d;
+    outline-offset: 4px
+}
+
+.video-thumbnail-link img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .25s ease, filter .25s ease
+}
+
+.video-play-button {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: grid;
+    place-items: center;
+    width: 68px;
+    height: 48px;
+    transform: translate(-50%, -50%);
+    border-radius: 14px;
+    background: #f00;
+    color: #fff;
+    font-size: 22px;
+    box-shadow: 0 8px 26px #0008;
+    transition: transform .2s ease, background .2s ease
+}
+
+.video-thumbnail-link:hover img,
+.video-thumbnail-link:focus-visible img {
+    transform: scale(1.035);
+    filter: brightness(.78)
+}
+
+.video-thumbnail-link:hover .video-play-button,
+.video-thumbnail-link:focus-visible .video-play-button {
+    transform: translate(-50%, -50%) scale(1.09);
+    background: #d90000
+}
+.video-preview {
+    height: 100px;
+    border-radius: 9px;
+    background: linear-gradient(140deg, #56384b, #252940);
+    display: grid;
+    place-items: center;
+    font-size: 24px;
+    color: #ffd2de;
+    margin-bottom: 12px
+}
+
+.whatsapp-qr-card {
+    display: grid;
+    justify-items: center;
+    width: fit-content;
+    min-width: 244px;
+    margin: 20px auto 14px;
+    padding: 16px 18px 14px;
+    border: 1px solid #72e6b12e;
+    border-radius: 18px;
+    background: radial-gradient(ellipse at 50% 0%, #62e6ae18, transparent 72%), #ffffff08;
+    box-shadow: inset 0 1px #ffffff0c, 0 12px 30px #05070925
+}
+
+.whatsapp-qr-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 12px;
+    color: #a8e7c8;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .15em
+}
+
+.whatsapp-qr-label i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #58d69a;
+    box-shadow: 0 0 10px #58d69a88
+}
+
+.whatsapp-qr-card a {
+    display: block;
+    width: min(184px, 52vw);
+    aspect-ratio: 1;
+    padding: 8px;
+    overflow: hidden;
+    border: 1px solid #ffffffb8;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 8px 22px #0003;
+    transition: transform .2s ease, box-shadow .2s ease
+}
+
+.whatsapp-qr-card a:hover,
+.whatsapp-qr-card a:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px #0005;
+    outline: 2px solid #65dba6;
+    outline-offset: 3px
+}
+
+.whatsapp-qr-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain
+}
+
+.whatsapp-qr-card p {
+    display: grid;
+    gap: 4px;
+    margin: 12px 0 0;
+    text-align: center
+}
+
+.whatsapp-qr-card p strong {
+    color: #f0f2f4;
+    font-size: 12px;
+    font-weight: 650
+}
+
+.whatsapp-qr-card p span {
+    color: #a5a9b0;
+    font-size: 10px
+}
+.contact-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px
+}
+
+.contact-links a,
+.contact-links button {
+    color: #e2d4ff;
+    text-decoration: none;
+    background: #ffffff0b;
+    padding: 10px 13px;
+    border: 1px solid #ffffff12;
+    border-radius: 9px;
+    font-size: 11px;
+    font-family: inherit;
+    cursor: pointer
+}
+
+.empty-note {
+    border: 1px dashed #ffffff25;
+    border-radius: 12px;
+    padding: 15px;
+    color: #a4a4b2;
+    font-size: 11px;
+    line-height: 1.6;
+    margin-top: 14px
+}
+
+.tester {
+    margin-top: 14px;
+    border: 1px solid #ffffff15;
+    border-radius: 12px;
+    overflow: hidden
+}
+
+.tester-head {
+    padding: 10px 12px;
+    background: #ffffff08;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: #d9d6e1
+}
+
+.tester-frame {
+    height: 170px;
+    background: #f4f3f8;
+    color: #383441;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 20px
+}
+
+.tester-frame button {
+    background: #383046;
+    color: white;
+    border: 0;
+    border-radius: 7px;
+    padding: 8px 12px;
+    cursor: pointer
+}
+
+@media(max-width:680px) {
+    .topbar {
+        padding: 0 16px
+    }
+
+    .top-center {
+        display: none
+    }
+
+    .welcome {
+        left: 8%;
+        top: 24%;
+        width: 84vw
+    }
+
+    .welcome h1 {
+        font-size: clamp(28px, 8vw, 42px)
+    }
+
+    
+.welcome-copy {
+        font-size: 12px
+    }
+
+    .desktop-icons {
+        right: 6%;
+        top: 56%;
+        grid-template-columns: repeat(3, 70px);
+        gap: 8px
+    }
+
+    .desktop-icon {
+        width: 70px;
+        font-size: 10px
+    }
+
+    .app-icon {
+        width: 39px;
+        height: 39px
+    }
+
+    .taskbar {
+        bottom: 10px
+    }
+
+    .taskbar-right .task-status {
+        display: none
+    }
+
+    .window-layer {
+        inset: 58px 0 80px
+    }
+
+    .window-content {
+        padding: 20px 17px
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr
+    }
+
+    .about-grid .info-card {
+        display: none
+    }
+
+    .folder-list,
+    .projects-grid,
+    .video-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 760px;
+    gap: 12px
+}
+
+    .window {
+        max-height: calc(100svh - 135px)
+    }
+}
