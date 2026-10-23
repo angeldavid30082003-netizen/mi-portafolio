@@ -194,8 +194,17 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .hero-name-letter { opacity: 1; transform: none; filter: none; animation: none }
-    .hero-intro::after { animation: none }
+    .hero-name-letter {
+        opacity: 0;
+        transform: none;
+        filter: none;
+        animation: name-letter-soft-appear .18s ease-out calc(var(--letter-index) * 18ms + 300ms) forwards
+    }
+    .hero-intro::after { animation: name-ribbon-pass .45s ease-out 80ms both }
+}
+
+@keyframes name-letter-soft-appear {
+    to { opacity: 1 }
 }
 .welcome-copy {
     color: #aaabb8;
